@@ -24,9 +24,9 @@
   // Grab elements from DOM.
   var panoElement = document.querySelector('#pano');
   var sceneNameElement = document.querySelector('#titleBar .sceneName');
-  var sceneListElement = document.querySelector('#sceneList');
+  // var sceneListElement = document.querySelector('#sceneList');
   var sceneElements = document.querySelectorAll('#sceneList .scene');
-  var sceneListToggleElement = document.querySelector('#sceneListToggle');
+  // var sceneListToggleElement = document.querySelector('#sceneListToggle');
   var autorotateToggleElement = document.querySelector('#autorotateToggle');
   var fullscreenToggleElement = document.querySelector('#fullscreenToggle');
 
@@ -138,24 +138,24 @@
   }
 
   // Set handler for scene list toggle.
-  sceneListToggleElement.addEventListener('click', toggleSceneList);
+  // sceneListToggleElement.addEventListener('click', toggleSceneList);
 
   // Start with the scene list open on desktop.
   if (!document.body.classList.contains('mobile')) {
-    showSceneList();
+    // showSceneList();
   }
 
   // Set handler for scene switch.
-  scenes.forEach(function(scene) {
-    var el = document.querySelector('#sceneList .scene[data-id="' + scene.data.id + '"]');
-    el.addEventListener('click', function() {
-      switchScene(scene);
-      // On mobile, hide scene list after selecting a scene.
-      if (document.body.classList.contains('mobile')) {
-        hideSceneList();
-      }
-    });
-  });
+  // scenes.forEach(function(scene) {
+  //   var el = document.querySelector('#sceneList .scene[data-id="' + scene.data.id + '"]');
+  //   el.addEventListener('click', function() {
+  //     switchScene(scene);
+  //     // On mobile, hide scene list after selecting a scene.
+  //     if (document.body.classList.contains('mobile')) {
+  //       hideSceneList();
+  //     }
+  //   });
+  // });
 
   // DOM elements for view controls.
   var viewUpElement = document.querySelector('#viewUp');
@@ -187,8 +187,8 @@
     scene.view.setParameters(scene.data.initialViewParameters);
     scene.scene.switchTo();
     startAutorotate();
-    updateSceneName(scene);
-    updateSceneList(scene);
+    // updateSceneName(scene);
+    // updateSceneList(scene);
   }
 
   function updateSceneName(scene) {
@@ -207,8 +207,8 @@
   }
 
   function showSceneList() {
-    sceneListElement.classList.add('enabled');
-    sceneListToggleElement.classList.add('enabled');
+    sceneListElement.classList.add('disabled');
+    sceneListToggleElement.classList.add('disabled');
   }
 
   function hideSceneList() {
